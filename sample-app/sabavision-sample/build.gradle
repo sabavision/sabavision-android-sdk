@@ -1,0 +1,68 @@
+repositories {
+    jcenter()
+    flatDir {
+        dirs '../libs'
+    }
+}
+
+apply plugin: 'com.android.application'
+
+project.group = 'com.sabavision'
+project.description = '''SabaVision Sample App'''
+project.version = '4.10.0'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion '24.0.3'
+    lintOptions { abortOnError false }
+
+    defaultConfig {
+        versionCode 1
+        versionName version
+        minSdkVersion 9
+        targetSdkVersion 24
+    }
+
+    buildTypes {
+      release {
+        minifyEnabled true
+        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg'
+      }
+      debug {
+        minifyEnabled false
+        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg'
+      }
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src/main/java']
+            resources.srcDirs = ['src/main/java']
+            aidl.srcDirs = ['src/main']
+            renderscript.srcDirs = ['src/main']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+
+        androidTest.setRoot('src/test')
+    }
+
+    // Note: You will also need a local.properties file to set the location of the SDK in the same 
+    // way that the existing SDK requires, using the sdk.dir property.
+    // Alternatively, you can set an environment variable called ANDROID_HOME. There is no 
+    // difference between the two methods, you can use the one you prefer.
+    // compile project(':sabavision-sdk')
+//    compile(name:'sabavision-sdk', ext:'aar')
+
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:24.2.1'
+    compile 'com.google.android.gms:play-services-ads:9.4.0'
+    compile 'com.android.support:recyclerview-v7:24.2.1'
+    compile(name: 'sabavision-sdk-base', ext: 'aar')
+    compile(name: 'sabavision-sdk-banner', ext: 'aar')
+    compile(name: 'sabavision-sdk-interstitial', ext: 'aar')
+    compile(name: 'sabavision-sdk-rewardedvideo', ext: 'aar')
+}

@@ -1,0 +1,2 @@
+rootProject.name = 'sabavision-android-sdk-master'
+include ':sabavision-sample'

@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>5</version>
+    </parent>
+
+    <groupId>com.sabavision.mobileads</groupId>
+    <artifactId>sabavision-android</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+
+    <repositories>
+        <repository>
+            <id>jcenter</id>
+            <name>JCenter</name>
+            <url>http://jcenter.bintray.com</url>
+        </repository>
+
+        <repository>
+            <id>andsupport</id>
+            <name>Android Support</name>
+            <url>file:///${env.ANDROID_HOME}/extras/android/m2repository</url>
+        </repository>
+
+        <repository>
+            <id>playservices</id>
+            <name>Android Play Services</name>
+            <url>file:///${env.ANDROID_HOME}/extras/google/m2repository</url>
+        </repository>
+    </repositories>
+
+    <modules>
+        <module>sabavision-sdk</module>
+        <module>sabavision-sample</module>
+    </modules>
+</project>
